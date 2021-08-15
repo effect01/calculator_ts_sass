@@ -1,0 +1,183 @@
+
+@use "sass:map"
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap')
+$theme-1:("position-toggle":25px ,"background-key": hsl(30, 25%, 89%),"shadow-key": hsl(28, 16%, 65%),"shadow-equal-color" :  hsl(6, 70%, 34%) ,"toggle-equal-color": hsl(6, 63%, 50%), "background-main":hsl(222, 26%, 31%),"background-keypad-toggle":hsl(223, 31%, 20%) , "background-output" :hsl(224, 36%, 15%)  ,"background-del-key": hsl(225, 21%, 49%) ,"shadow-del-key":hsl(224, 28%, 35%),"text-output-color": hsl(0, 0%, 100%), "text-del-color": hsl(0, 0%, 100%),  "text-equal-color": hsl(0, 0%, 100%), "text-key-number-color": hsl(221, 14%, 31%)   ) 
+$theme-2:("position-toggle":  41px, "background-key": hsl(45, 7%, 89%),"shadow-key":  hsl(35, 11%, 61%),"shadow-equal-color" : hsl(25, 99%, 27%)  ,"toggle-equal-color":  hsl(25, 98%, 40%), "background-main":hsl(0, 0%, 90%),"background-keypad-toggle":hsl(0, 5%, 81%) , "background-output": hsl(0, 0%, 93%)  ,"background-del-key":hsl(185, 42%, 37%) ,"shadow-del-key": hsl(185, 58%, 25%),"text-output-color": hsl(60, 10%, 19%), "text-del-color": hsl(0, 0%, 100%),  "text-equal-color": hsl(0, 0%, 100%), "text-key-number-color": hsl(60, 10%, 19%)   ) 
+$theme-3:( "position-toggle":  60px, "background-key":  hsl(268, 47%, 21%),"shadow-key": hsl(290, 70%, 36%),"shadow-equal-color" : hsl(177, 92%, 70%) ,"toggle-equal-color": hsl(176, 100%, 44%), "background-main":hsl(268, 75%, 9%),"background-keypad-toggle":hsl(268, 71%, 12%) , "background-output" :hsl(268, 71%, 12%)  ,"background-del-key": hsl(281, 89%, 26%) ,"shadow-del-key":hsl(285, 91%, 52%),"text-output-color": hsl(52, 100%, 62%), "text-del-color":  hsl(0, 0%, 100%),  "text-equal-color":hsl(198, 20%, 13%) , "text-key-number-color":  hsl(52, 100%, 62%)   ) 
+
+$isOption3: "theme-3"
+$isOption2: "theme-2"
+$isDefault: "theme-1"
+
+
+*
+  font-family: 'Spartan'
+  align-items: center
+
+@mixin themes($theme-name, $theme-colors ) 
+  .#{$theme-name} 
+    section
+      justify-content: center
+      #calculator-card
+        width: 320px
+        margin: auto
+        padding: 27px
+        padding-bottom: 40px
+        height: fit-content
+        background:  map.get($theme-colors, "background-main")
+        #calculator-head
+          display: flex
+          color:  map.get($theme-colors, "text-output-color")
+          height: 50px
+          width: 100%
+          justify-content: space-between
+          > div > span
+            color:  map.get($theme-colors, "text-output-color")
+            font-size: 35px
+    
+          #calculator-head-panel
+            display: flex
+            p
+              margin-bottom: 0
+              padding: 21px
+              padding-right: 0
+              font-size: 10px
+            > div 
+              display: block
+              margin: 4px
+              width: 60px
+              > div:nth-child(1) 
+                display: flex
+                font-size: 11px
+                width: 100%
+                margin: auto
+                justify-content: center
+                span
+                  margin-left: 6px
+                  margin-right: 6px
+              
+              > div:nth-child(2) 
+                height: 25px
+                width: 100%
+                background:  map.get($theme-colors, "background-keypad-toggle") 
+                margin-bottom: 8px
+                margin-top: 4px
+                border-radius: 120px
+        #calculator-input
+          background: map.get($theme-colors, "background-output")
+          width: 100%
+          height: 100px
+          margin-top: 27px
+          border-radius: 15px
+          font-weight: 700
+          overflow: hidden
+          overflow-wrap: anywhere
+          display: block
+          div
+            padding: 15px
+            #calculator-input-prev
+              text-align: right
+              padding: 0
+              font-size: 9px
+              color: map.get($theme-colors, "text-output-color") 
+            #calculator-input-current
+              padding: 6px
+              color:  map.get($theme-colors, "text-output-color") 
+              align-content: center
+              font-size: 35px
+              text-align: right
+              display: -webkit-box
+              overflow: hidden
+              overflow-wrap: anywhere
+              flex-direction: column
+              align-content: start
+              flex-shrink: 1
+              -webkit-box-orient: vertical
+              height: 30px
+              -webkit-line-clamp: 1
+
+        #calculator-body
+          background: map.get($theme-colors, "background-keypad-toggle") 
+          margin-top: 27px
+          border-radius: 10px
+          #calculator-botons-grid
+            display: grid
+            grid-template-columns: 60px 60px 60px 60px
+            grid-template-rows: 60px 60px 60px 60px 60px
+            width: fit-content
+            grid-column-gap: 13px
+            grid-row-gap: 13px
+            padding: 20px
+            margin: auto
+            .number-pad  
+              display: flex
+              background:  map.get($theme-colors, "background-key")
+              height: 100%
+              box-shadow: 0 5px 1px map.get($theme-colors, "shadow-key")
+              justify-content: center
+              align-content: center
+              text-align: center
+              border-radius: 5px
+              font-size: 32px
+              color: map.get($theme-colors, "text-key-number-color")
+              cursor: pointer
+            .number-pad-del
+              background:  map.get($theme-colors, "background-del-key")
+              box-shadow: 0 5px 1px  map.get($theme-colors, "shadow-del-key")
+              color: map.get($theme-colors, "text-del-color")
+              height: 100%
+              display: flex
+              justify-content: center
+              align-content: center
+              border-radius: 5px
+              cursor: pointer
+            .number-pad-del.reset
+              grid-row: 5
+              grid-column: 1/3
+            .number-pad-equal
+              color:  map.get($theme-colors, "text-equal-color")
+              background: map.get($theme-colors, "toggle-equal-color")
+              box-shadow: 0 5px 1px map.get($theme-colors, "shadow-equal-color")
+              height: 100%
+              display: flex
+              justify-content: center
+              align-content: center
+              cursor: pointer
+              border-radius: 5px
+              grid-row: 5
+              grid-column: 3/5
+    svg.them-selector-circle
+      width: 15px
+      height: 15px
+      fill:  map.get($theme-colors, "toggle-equal-color")
+      color:  map.get($theme-colors, "toggle-equal-color")
+      display: block
+      position: relative
+      left: map.get($theme-colors, "position-toggle")
+      padding-top: 9px
+      :hover 
+        fill: map.get($theme-colors, "shadow-equal-color")
+      circle
+        transition: fill 0s ease-in-out
+        fill:  map.get($theme-colors, "toggle-equal-color")
+        color:  map.get($theme-colors, "toggle-equal-color")
+        cx: 7
+        cy: 7
+        r: 7
+  
+    .btn-group
+      display: flex
+      justify-content: center
+      div
+        cursor: pointer
+        pointer-events: painted
+        width: 15px
+        height: 15px
+        margin: 2px
+    *
+      text-align: center
+      transition: all .3s ease-in-out
+
+@include themes( $isDefault ,$theme-1 ) 
+@include themes( $isOption2 ,$theme-2 ) 
+@include themes( $isOption3 ,$theme-3 )   

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="./stylesheet/index.css" />
+		<title>Calculator</title>
+		<script>
+			function changeTheme(theme) {
+				const body = document.body;
+				body.className = theme;
+			}
+		</script>
+	</head>
+	<body class="theme-1">
+		<section>
+			<div id="calculator-card">
+				<div id="calculator-head">
+					<div>
+						<span> calc </span>
+					</div>
+					<div id="calculator-head-panel">
+						<p>THEME</p>
+						<svg class="them-selector-circle">
+							<circle />
+						</svg>
+						<div>
+							<div>
+								<span>1</span>
+								<span>2</span>
+								<span>3</span>
+							</div>
+							<div class="btn-group">
+								<div
+									id="theme-1"
+									onclick="changeTheme(this.id)"
+									option-1
+									class="btn-theme-option"
+								></div>
+								<div
+									id="theme-2"
+									onclick="changeTheme(this.id)"
+									option-2
+									class="btn-theme-option"
+								></div>
+								<div
+									id="theme-3"
+									onclick="changeTheme(this.id)"
+									option-3
+									class="btn-theme-option"
+								></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="calculator-input">
+					<div>
+						<div data-input-prev id="calculator-input-prev">0</div>
+						<div data-input-current id="calculator-input-current">0</div>
+					</div>
+				</div>
+				<div id="calculator-body">
+					<div id="calculator-botons-grid">
+						<div class="number-pad">9</div>
+						<div class="number-pad">8</div>
+						<div class="number-pad">7</div>
+						<div class="number-pad-del">DEL</div>
+				
+						<div class="number-pad">4</div>
+						<div class="number-pad">5</div>
+						<div class="number-pad">6</div>
+						<div class="number-pad">+</div>
+					
+						<div class="number-pad">1</div>
+						<div class="number-pad">2</div>
+						<div class="number-pad">3</div>
+						<div class="number-pad">-</div>
+
+						<div class="number-pad" aria-placeholder=",">.</div>
+						<div class="number-pad">0</div>
+						<div class="number-pad">/</div>
+						<div class="number-pad" value="1">x</div>
+						<div class="number-pad-del reset b-reset">RESET</div>
+						<div class="number-pad-equal" value="1">=</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+	<script src="./Typescript/Calculator.js"></script>
+</html>
