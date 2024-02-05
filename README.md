@@ -1,5 +1,6 @@
 # calculator_ts_sass
-use it for showing my colleague SASS :D
+used to teach scss 
+
 Changeller from  https://www.frontendmentor.io/
 
 ![alt text](https://res.cloudinary.com/javier1/image/upload/v1628991416/screenshot/Screenshot_6_ly09t5.jpg)
